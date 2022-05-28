@@ -1,22 +1,24 @@
 import React, {useState} from "react";
 import './styles/App.css'
-import ClassCounter from "./components/ClassCounter";
-import Counter from "./components/Counter";
+import PostList from "./components/PostList";
 
 function App() {
-  const [value, setValue] = useState('Текст в инпуте');
+  const [posts, setPosts] = useState([
+    {id: 1, title: 'Javascript', body: 'Description'},
+    {id: 2, title: 'Javascript 2', body: 'Description'},
+    {id: 3, title: 'Javascript 3', body: 'Description'}
+  ])
+
+  const [posts2, setPosts2] = useState([
+    {id: 1, title: 'Python', body: 'Description'},
+    {id: 2, title: 'Python 2', body: 'Description'},
+    {id: 3, title: 'Python 3', body: 'Description'}
+  ])
 
   return (
     <div className="App">
-      <div className="post">
-        <div className="post__content">
-          <strong>1. Javascript</strong>
-          <div>Javascript - Язык программирования</div>
-        </div>
-        <div className="post__btns">
-          <button>Удалить</button>
-        </div>
-      </div>
+      <PostList posts={posts} title={'Список постов 1'}/>
+      <PostList posts={posts2} title={'Список постов 2'}/>
     </div>
   );
 }
